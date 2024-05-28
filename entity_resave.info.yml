@@ -1,0 +1,8 @@
+name: Entity batch resave
+type: module
+description: "Resave entity items in batch."
+package: Custom
+core_version_requirement: ^9.0 || ^10
+dependencies:
+  - media
+  - media_library

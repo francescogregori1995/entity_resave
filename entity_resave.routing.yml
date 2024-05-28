@@ -1,0 +1,23 @@
+entity_resave.completed:
+  path: '/admin/entity_resave/completed'
+  defaults:
+    _controller: 'Drupal\entity_resave\Controller\entity_resave_Controller::completed'
+    _title: ''
+  requirements:
+    _permission: 'access content'
+
+entity_resave.node_resave:
+  path: '/admin/entity_resave/resave-node'
+  defaults:
+    _form: 'Drupal\entity_resave\Form\NodeResaveForm'
+    _title: 'Resave Node'
+  requirements:
+    _permission: 'access content'
+
+entity_resave.media_resave:
+  path: '/admin/entity_resave/resave-media'
+  defaults:
+    _form: 'Drupal\entity_resave\Form\MediaResaveForm'
+    _title: 'Resave Media'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,41 @@
+<?php
+use Drupal\user\Entity\Role;
+use Drupal\user\Entity\User;
+use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Term;
+use \Drupal\path_alias\Entity\PathAlias;
+use Drupal\file\Entity\File;
+use Drupal\media\Entity\Media;
+use \Drupal\paragraphs\Entity\Paragraph;
+use Drupal\Core\File\FileSystemInterface;
+use Drupal\book\BookManagerInterface;
+use Drupal\Core\Menu\MenuLinkInterface;
+use Drupal\Core\Menu\MenuLinkTreeInterface;
+use Drupal\comment\Entity\Comment;
+use Drupal\Core\Url;
+function update_node($file_data, $update, &$context)
+{
+    $message = 'Sto risalvando ...';
+    $nid = $file_data;
+    $node = Node::load($nid);
+    if ($update !== '1') {
+      // Recupera la vecchia data di modifica
+      $old_changed_time = $node->getChangedTime();
+      // Imposta la data di modifica con la vecchia data
+      $node->setChangedTime($old_changed_time);
+    }
+    // salvo il nodo
+    $node->save();
+    $context['results'][] = 'Fatto';
+    $context['message'] = $message;
+}
+function update_media($file_data, &$context)
+{
+    $message = 'Sto risalvando ...';
+    $mid = $file_data;
+    $media = Media::load($mid);
+    // salvo il media
+    $media->save();
+    $context['results'][] = 'Fatto';
+    $context['message'] = $message;
+}

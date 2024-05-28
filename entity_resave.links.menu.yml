@@ -1,0 +1,13 @@
+entity_resave.node:
+  title: 'Entity Resave: NODE'
+  description: 'Risalva tutti i contenuti dei nodi'
+  parent: system.admin_config_development
+  route_name: entity_resave.node_resave
+  weight: -100
+
+entity_resave.media:
+  title: 'Entity Resave: MEDIA'
+  description: 'Risalva tutti i media'
+  parent: system.admin_config_development
+  route_name: entity_resave.media_resave
+  weight: -99
